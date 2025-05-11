@@ -23,6 +23,7 @@ from product.views import (
     category_detail_api_view,
     review_list_api_view,
     review_detail_api_view,
+    products_reviews_api_view
 )
 
 urlpatterns = [
@@ -32,5 +33,6 @@ urlpatterns = [
     path('api/v1/categories/', category_list_api_view),
     path('api/v1/categories/<int:category_id>/', category_detail_api_view),
     path('api/v1/reviews/', review_list_api_view),
-    path('api/v1/reviews/<int:review_id>/', review_detail_api_view)
+    path('api/v1/reviews/<int:review_id>/', review_detail_api_view),
+    path('api/v1/products/reviews/', products_reviews_api_view),
 ]
