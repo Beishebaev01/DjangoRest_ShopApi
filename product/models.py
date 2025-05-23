@@ -15,7 +15,7 @@ class Category(models.Model):
 
 class Product(models.Model):
     title = models.CharField(max_length=100)
-    description = models.TextField()
+    description = models.TextField(null=True, blank=True)
     price = models.FloatField(default=0)
     is_active = models.BooleanField(default=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True, blank=True)
