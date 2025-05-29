@@ -12,8 +12,7 @@ class ProductDetailSerializer(serializers.ModelSerializer):
 class ProductListSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = 'id', 'title', 'price', 'category', 'reviews'
-        depth = 1
+        fields = ('id', 'title', 'description', 'price', 'category', 'reviews')
 
 
 class CategorySerializer(serializers.ModelSerializer):

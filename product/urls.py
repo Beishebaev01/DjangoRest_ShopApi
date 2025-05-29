@@ -1,12 +1,13 @@
 from django.urls import path
 from product import views
+from utils.constants import LIST_CREATE, REVIEW_UPDATE_DESTROY
 
 urlpatterns = [
-    path('', views.product_list_create_api_view),
-    path('<int:product_id>/', views.product_detail_api_view),
-    path('categories/', views.category_list_create_api_view),
-    path('categories/<int:category_id>/', views.category_detail_api_view),
-    path('reviews/', views.review_list_create_api_view),
-    path('reviews/<int:review_id>/', views.review_detail_api_view),
-    path('product_reviews/', views.products_reviews_api_view)
+    path('', views.ProductViewSet.as_view(LIST_CREATE)),
+    path('<int:id>/', views.ProductViewSet.as_view(REVIEW_UPDATE_DESTROY)),
+    path('categories/', views.CategoryViewSet.as_view(LIST_CREATE)),
+    path('categories/<int:id>/', views.CategoryViewSet.as_view(REVIEW_UPDATE_DESTROY)),
+    path('reviews/', views.ReviewAPIViewSet.as_view(LIST_CREATE)),
+    path('reviews/<int:id>/', views.ReviewAPIViewSet.as_view(REVIEW_UPDATE_DESTROY)),
+    path('product_reviews/', views.ProductReviewsListAPIView.as_view()),
 ]
